@@ -8,7 +8,7 @@ Make sure you have a modern web browser installed to view and interact with the 
 
 Installation
 Clone this repository to your local machine:
-git clone https://github.com/your-username/bouncing-ball-project.git
+git clone https://github.com/nafanj/bouncing-ball.git
 Open the index.html file in your preferred web browser.
 
 Features
