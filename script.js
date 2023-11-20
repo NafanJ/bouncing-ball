@@ -30,11 +30,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (positionX + ball.offsetWidth > window.innerWidth || positionX < 0) {
             speedX = -speedX * acceleration; // Reverse and increase speed
             changeColor(); // Change the color on collision
+            playCollisionSound();
         }
 
         if (positionY + ball.offsetHeight > window.innerHeight || positionY < 0) {
             speedY = -speedY * acceleration; // Reverse and increase speed
             changeColor(); // Change the color on collision
+            playCollisionSound();
         }
 
         // Limit the speed to the maximum speed
@@ -60,6 +62,16 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(speedX,speedY)
     }
 
+    // Function to play the collision sound
+    function playCollisionSound() {
+    var collisionSound = document.getElementById("collisionSound");
+    collisionSound.currentTime = 0; // Rewind the sound to the beginning (optional)
+    collisionSound.play();
+}
+
     // Start the animation
     animate();
 });
+
+
+
