@@ -1,3 +1,4 @@
+
 Bouncing Ball Project
 Welcome to the Bouncing Ball project! This simple HTML and JavaScript project features a bouncing ball that changes color upon collision with the screen boundaries.
 
@@ -7,7 +8,7 @@ Make sure you have a modern web browser installed to view and interact with the 
 
 Installation
 Clone this repository to your local machine:
-git clone https://github.com/your-username/bouncing-ball-project.git
+git clone https://github.com/nafanj/bouncing-ball.git
 Open the index.html file in your preferred web browser.
 
 Features
@@ -28,9 +29,5 @@ Create a new branch for your feature or bug fix.
 Make your changes and commit them with descriptive commit messages.
 Push your changes to your fork.
 Submit a pull request.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgments
-Thanks to [Your Name] for inspiration and guidance.
 Enjoy the bouncing ball!
