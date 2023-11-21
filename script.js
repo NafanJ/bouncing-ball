@@ -10,16 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var acceleration = 1.1; // Factor by which speed increases on collision
     var maxSpeed = 20; // Maximum speed limit
 
-    // Array of colors for the ball
-    var colors = [
-        "#3498db", "#e74c3c", "#2ecc71", "#f39c12", "#9b59b6",
-        "#3498db", "#e74c3c", "#2ecc71", "#f39c12", "#9b59b6",
-        "#1abc9c", "#d35400", "#2980b9", "#c0392b", "#27ae60",
-        "#1abc9c", "#d35400", "#2980b9", "#c0392b", "#27ae60",
-        "#f1c40f", "#8e44ad", "#16a085", "#e67e22", "#34495e",
-        "#f1c40f", "#8e44ad", "#16a085", "#e67e22", "#34495e"
-    ];
-
     // Set up the animation
     function animate() {
         // Update position
