@@ -1,51 +1,64 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Get the ball element
+document.addEventListener("DOMContentLoaded", function () {
     var ball = document.getElementById("ball");
+    var trailContainer = document.createElement("div");
+    trailContainer.id = "trail-container";
+    document.body.appendChild(trailContainer);
 
-    // Set initial position and speed
     var positionX = 0;
     var positionY = 0;
     var speedX = 5;
     var speedY = 5;
-    var acceleration = 1.1; // Factor by which speed increases on collision
-    var maxSpeed = 20; // Maximum speed limit
+    var acceleration = 1.1;
+    var maxSpeed = 20;
 
-    // Set up the animation
     function animate() {
-        // Update position
         positionX += speedX;
         positionY += speedY;
-
+        changeColor()
         // Check for collisions with the window boundaries
-        if (positionX + ball.offsetWidth > window.innerWidth || positionX < 0) {
-            speedX = -speedX * acceleration; // Reverse and increase speed
-            changeColor(); // Change the color on collision
+        if (positionX + ball.offsetWidth > window.innerWidth) {
+            positionX = window.innerWidth - ball.offsetWidth;
+            speedX = -speedX * acceleration;
+            playCollisionSound();
+        } else if (positionX < 0) {
+            positionX = 0;
+            speedX = -speedX * acceleration;
             playCollisionSound();
         }
 
-        if (positionY + ball.offsetHeight > window.innerHeight || positionY < 0) {
-            speedY = -speedY * acceleration; // Reverse and increase speed
-            changeColor(); // Change the color on collision
+        if (positionY + ball.offsetHeight > window.innerHeight) {
+            positionY = window.innerHeight - ball.offsetHeight;
+            speedY = -speedY * acceleration;
+            playCollisionSound();
+        } else if (positionY < 0) {
+            positionY = 0;
+            speedY = -speedY * acceleration;
             playCollisionSound();
         }
 
-        // Limit the speed to the maximum speed
         speedX = Math.min(speedX, maxSpeed);
         speedY = Math.min(speedY, maxSpeed);
 
-        // Round the position values to whole numbers
         var roundedX = Math.round(positionX);
         var roundedY = Math.round(positionY);
 
-        // Apply the new rounded position
         ball.style.left = roundedX + "px";
         ball.style.top = roundedY + "px";
 
-        // Request the next animation frame
+        createTrail(roundedX + ball.offsetWidth / 2, roundedY + ball.offsetHeight / 2);
+
         requestAnimationFrame(animate);
     }
 
-    // Function to change the color of the ball randomly
+    function createTrail(x, y) {
+        var trail = document.createElement("div");
+        trail.className = "trail";
+        trail.style.left = x + "px";
+        trail.style.top = y + "px";
+        trail.style.backgroundColor = ball.style.backgroundColor
+        trailContainer.appendChild(trail);
+    }
+
     function changeColor() {
         const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
         const r = randomBetween(0, 255);
@@ -55,16 +68,11 @@ document.addEventListener("DOMContentLoaded", function() {
         ball.style.backgroundColor = rgb;
     }
 
-    // Function to play the collision sound
     function playCollisionSound() {
-    var collisionSound = document.getElementById("collisionSound");
-    collisionSound.currentTime = 0; // Rewind the sound to the beginning (optional)
-    collisionSound.play();
-}
+        var collisionSound = document.getElementById("collisionSound");
+        collisionSound.currentTime = 0;
+        collisionSound.play();
+    }
 
-    // Start the animation
     animate();
 });
-
-
-
