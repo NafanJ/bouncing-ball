@@ -53,8 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const b = randomBetween(0, 255);
         const rgb = `rgb(${r},${g},${b})`;
         ball.style.backgroundColor = rgb;
-        console.log(speedX,speedY)
-        console.log(rgb)
     }
 
     // Function to play the collision sound
