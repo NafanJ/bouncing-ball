@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var speedY = 5;
     var acceleration = 1.1;
     var maxSpeed = 20;
-    var red = 0
-    var green = 0
-    var blue = 0;
 
     function animate() {
         positionX += speedX;
@@ -63,14 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function changeColor() {
-        /*const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+        const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
         const r = randomBetween(0, 255);
         const g = randomBetween(0, 255);
-        const b = randomBetween(0, 255);*/
-        red  += 1;
-        green  += 1;
-        blue += 1;
-        const rgb = `rgb(${red},${green},${blue})`;
+        const b = randomBetween(0, 255);
+        const rgb = `rgb(${r},${g},${b})`;
         ball.style.backgroundColor = rgb;
     }
 
