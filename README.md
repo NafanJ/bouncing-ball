@@ -1,5 +1,5 @@
 
-**Bouncing Ball Project**
+#Bouncing Ball Project
 Welcome to the Bouncing Ball project! This simple HTML and JavaScript project features a bouncing ball that changes color upon collision with the screen boundaries.
 
 **Getting Started**
